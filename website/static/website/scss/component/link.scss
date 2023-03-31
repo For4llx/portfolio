@@ -1,0 +1,12 @@
+@use "../abstracts/index" as *;
+
+.link {
+    fill: var(--white);
+    color: var(--white);
+    cursor: pointer;
+
+    :hover {
+        fill: var(--green);
+        color: var(--green);
+    }
+}
