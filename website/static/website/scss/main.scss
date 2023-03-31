@@ -1,3 +1,10 @@
 @use "base/base";
 
 @use "utils/variables";
+
+@use "component/logo";
+@use "component/link";
+
+@use "layout/header";
+@use "layout/body";
+@use "layout/socials";
