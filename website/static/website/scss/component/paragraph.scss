@@ -1,0 +1,11 @@
+@use "../abstracts/index" as *;
+
+.paragraph {
+    color: var(--white);
+    max-width: 445px;
+    @include body;
+
+    &--grey {
+        color: var(--grey);
+    }
+}
