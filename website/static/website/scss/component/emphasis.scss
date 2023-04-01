@@ -1,0 +1,5 @@
+@use "../abstracts/index" as *;
+
+.emphasis {
+    border-bottom: 6px solid var(--green);
+}
