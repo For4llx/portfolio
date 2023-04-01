@@ -1,0 +1,19 @@
+@use "../abstracts/index" as *;
+
+.button {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 26px;
+    letter-spacing: 2.29px;
+    color: var(--white);
+    cursor: pointer;
+    width: fit-content;
+    border-bottom: 2px solid var(--green);
+    padding-bottom: 0.625rem;
+
+    &:hover {
+        color: var(--green);
+    }
+}

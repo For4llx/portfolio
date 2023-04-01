@@ -1,0 +1,7 @@
+@use "../abstracts/index" as *;
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}

@@ -1,0 +1,49 @@
+@use "../abstracts/index" as *;
+
+.content {
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+        width: 709px;
+    }
+
+    &__paragraph {
+        margin-top: 2.688rem;
+    }
+
+    &__button {
+        margin-top: 4.125rem;
+    }
+
+    &--border-bottom {
+        border-bottom: 1px solid var(--white);
+    }
+
+    @include medium {
+        &__title {
+            width: 445px;
+        }
+
+        &__paragraph {
+            margin-top: 3.75rem;
+        }
+
+        &__button {
+            margin-top: 2.125rem;
+        }
+    }
+
+    @include small {
+        &__paragraph {
+            margin-top: 1.5rem;
+        }
+
+        &__button {
+            margin-top: 1.5rem;
+        }
+
+        align-items: center;
+        text-align: center;
+    }
+}

@@ -1,8 +1,16 @@
 @use "../abstracts/index" as *;
 
 .header {
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1.25rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
     @include container;
+
+    @include small {
+        flex-direction: column;
+    }
 }
