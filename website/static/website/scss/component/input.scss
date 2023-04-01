@@ -1,0 +1,7 @@
+@use "../abstracts/index" as *;
+
+.input {
+    background-color: transparent;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--white);
+}
