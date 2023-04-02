@@ -16,8 +16,17 @@
         margin-top: 4.125rem;
     }
 
-    &--border-bottom {
-        border-bottom: 1px solid var(--white);
+    &--accent-ring-top {
+        position: relative;
+
+        &::after {
+            content: url("/static/website/assets/images/pattern-rings.svg");
+            position: absolute;
+            /* half the height of the ring */
+            top: -75px;
+            /* half the width of the ring */
+            left: -275px;
+        }
     }
 
     @include medium {
