@@ -2,10 +2,22 @@
 
 .footer {
     padding-top: 5.25rem;
-    padding-bottom: 5.25rem;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-
     background-color: var(--dark-black);
     @include container;
+
+    &__contact {
+        margin-bottom: 5.75rem;
+    }
+
+    @include medium {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+
+
+        &__contact {
+            flex-direction: column;
+        }
+    }
 }
