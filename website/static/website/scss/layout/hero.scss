@@ -1,9 +1,74 @@
 @use "../abstracts/index" as *;
 
 .hero {
+    position: relative;
     @include container;
 
     &__content {
         margin-top: 12.375rem;
+    }
+
+    &__image {
+        position: absolute;
+        top: 0;
+        right: max(calc(50% - var(--container) / 2), 2rem);
+        height: 100%;
+        width: 445px;
+        z-index: -1;
+        background-color: var(--dark-black);
+    }
+
+    &--accent-circle {
+        &::after {
+            content: url("/static/website/assets/images/pattern-circle.svg");
+            position: absolute;
+            /* half the height of the ring */
+            bottom: 75px;
+            /* half the width of the ring */
+            left: -64.5px;
+            width: fit-content;
+        }
+    }
+
+    @include medium {
+
+        &__image {
+            position: absolute;
+
+            width: 322px;
+            right: 0;
+        }
+
+
+        &--accent-circle {
+            &::after {
+                bottom: 0;
+                left: 258px;
+            }
+        }
+    }
+
+    @include small {
+        display: flex;
+        align-items: center;
+        flex-direction: column-reverse;
+        gap: 2.5rem;
+
+        &__content {
+            margin-top: inherit;
+        }
+
+        &__image {
+            width: 174.21px;
+            height: 383px;
+            position: inherit;
+        }
+
+        &--accent-circle {
+            &::after {
+                bottom: 0;
+                left: 206px;
+            }
+        }
     }
 }
