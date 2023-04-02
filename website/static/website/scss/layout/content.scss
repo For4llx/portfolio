@@ -44,6 +44,13 @@
     }
 
     @include small {
+        align-items: center;
+        text-align: center;
+
+        &__title {
+            width: inherit;
+        }
+
         &__paragraph {
             margin-top: 1.5rem;
         }
@@ -52,7 +59,15 @@
             margin-top: 1.5rem;
         }
 
-        align-items: center;
-        text-align: center;
+        &--accent-ring-top {
+            position: relative;
+
+            &::after {
+                content: url("/static/website/assets/images/pattern-rings.svg");
+                position: absolute;
+                top: -275px;
+                left: -275px;
+            }
+        }
     }
 }
