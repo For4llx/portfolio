@@ -2,15 +2,18 @@
 
 .header {
     position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.25rem;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    z-index: 1;
     @include container;
+
+    &__navigation {
+        margin-right: 2rem;
+    }
 
     @include small {
         flex-direction: column;
+
+        &__navigation {
+            margin-right: 0;
+        }
     }
 }

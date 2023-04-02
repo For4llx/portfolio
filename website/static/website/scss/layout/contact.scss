@@ -2,6 +2,55 @@
 
 .contact {
     display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    justify-content: space-between;
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        width: 445px;
+    }
+
+    &__button {
+        align-self: end;
+    }
+
+    &--accent-ring-bottom {
+        position: relative;
+
+        &::after {
+            content: url("/static/website/assets/images/pattern-rings.svg");
+            position: absolute;
+            bottom: 0;
+            /* half the width of the ring */
+            left: -275px;
+        }
+    }
+
+    @include medium {
+        &--accent-ring-bottom {
+            &::after {
+                /* half the height of the ring */
+                bottom: -75px;
+                /* the width of the ring */
+                left: -530px;
+            }
+        }
+    }
+
+    @include small {
+        &__form {
+            width: inherit;
+            max-width: 445px;
+        }
+
+        &--accent-ring-bottom {
+            &::after {
+                /* half the height of the ring */
+                bottom: 0px;
+                /* the width of the ring / 4 */
+                left: -407.5px;
+            }
+        }
+    }
 }

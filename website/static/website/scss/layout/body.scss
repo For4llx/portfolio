@@ -6,4 +6,9 @@
     align-items: center;
     gap: 10.5rem;
     background-color: var(--black);
+    overflow-x: hidden;
+
+    @include small {
+        gap: 5rem;
+    }
 }

@@ -1,0 +1,25 @@
+@use "../abstracts/index" as *;
+
+.projects {
+    @include container;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 5rem;
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        column-gap: 1.875rem;
+        row-gap: 4.313rem;
+    }
+
+    @include small {
+        &__list {
+            row-gap: 2.5rem;
+        }
+    }
+}
