@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'website/css/dist/main.css' %}">
+    <script type="module" src="{% static "website/js/main.js" %}" defer></script>
     <title>Romeo Nobime</title>
 </head>
 <body class="body">
@@ -48,46 +49,19 @@
                 <a class="button content__button" href="#projects">Projects</a>
             </article>
             <div class="hero__image hero--accent-circle">
+                <img class="image" src="{% static "website/"|add:"./assets/images/photo_profile_3.png" %}" />
             </div>
         </section>
         <section class="skills">
             <ul class="skills__list skills--border-bottom skills--border-top skills--accent-ring-bottom">
+                {% for skill in skills %}
                 <li>
                     <article>
-                        <h2 class="h2">HTML</h2>
-                        <p class="paragraph">2 years Experience</p>
+                        <h2 class="h2">{{ skill.name }}</h2>
+                        <p class="paragraph">{{ skill.years_of_experience }} years Experience</p>
                     </article>
                 </li>
-                <li>
-                    <article>
-                        <h2 class="h2">HTML</h2>
-                        <p class="paragraph">2 years Experience</p>
-                    </article>
-                </li>
-                <li>
-                    <article>
-                        <h2 class="h2">HTML</h2>
-                        <p class="paragraph">2 years Experience</p>
-                    </article>
-                </li>
-                <li>
-                    <article>
-                        <h2 class="h2">HTML</h2>
-                        <p class="paragraph">2 years Experience</p>
-                    </article>
-                </li>
-                <li>
-                    <article>
-                        <h2 class="h2">HTML</h2>
-                        <p class="paragraph">2 years Experience</p>
-                    </article>
-                </li>
-                <li>
-                    <article>
-                        <h2 class="h2">HTML</h2>
-                        <p class="paragraph">2 years Experience</p>
-                    </article>
-                </li>
+                {% endfor %}
             </ul>
         </section>
         <section id="projects" class="projects">
@@ -96,56 +70,29 @@
                 <a class="button" href="#contact">Contact me</a>
             </header>
             <ul class="projects__list">
+                {% for project in projects %}
                 <li>
                     <article class="project-item">
                         <div class="project-item__image">
-                            <img class="image" src="{% static "website/assets/images/thumbnail-project-6-large.webp" %}"/>
+                            <img class="image" src="{% static "website/"|add:project.image %}"/>
                             <div class="project-item__overlay">
-                                <a class="button">View project</a>
-                                <a class="button">View code</a>
+                                <a href="{{ project.project_link }}" class="button">View project</a>
+                                <a href="{{ project.code_link }}" class="button">View code</a>
                             </div>
                         </div>
-                        <h3 class="h3 project-item__title">Audiophile</h3>
+                        <h3 class="h3 project-item__title">{{ project.name }}</h3>
                         <ul class="project-item__skills">
-                            <li><p class="paragraph paragraph--grey">HTML</p></li>
-                            <li><p class="paragraph paragraph--grey">CSS</p></li>
+                            {% for skill in project.skills.all %}
+                            <li><p class="paragraph paragraph--uppercase paragraph--grey">{{ skill.name }}</p></li>
+                            {% endfor %}
                         </ul>
                         <div class="project-item__links">
-                            <a class="button">View project</a>
-                            <a class="button">View code</a>
+                            <a href="{{ project.project_link }}" class="button">View project</a>
+                            <a href="{{ project.code_link }}" class="button">View code</a>
                         </div>
                     </article>
                 </li>
-                <li>
-                    <article class="project-item">
-                        <img class="image project-item__image" src="{% static "website/assets/images/thumbnail-project-6-large.webp" %}"/>
-                        <h3 class="h3 project-item__title">Audiophile</h3>
-                        <ul class="project-item__skills">
-                            <li><p class="paragraph paragraph--grey">HTML</p></li>
-                            <li><p class="paragraph paragraph--grey">CSS</p></li>
-                        </ul>
-                    </article>
-                </li>
-                <li>
-                    <article class="project-item">
-                        <img class="image project-item__image" src="{% static "website/assets/images/thumbnail-project-6-large.webp" %}"/>
-                        <h3 class="h3 project-item__title">Audiophile</h3>
-                        <ul class="project-item__skills">
-                            <li><p class="paragraph paragraph--grey">HTML</p></li>
-                            <li><p class="paragraph paragraph--grey">CSS</p></li>
-                        </ul>
-                    </article>
-                </li>
-                <li>
-                    <article class="project-item">
-                        <img class="image project-item__image" src="{% static "website/assets/images/thumbnail-project-6-large.webp" %}"/>
-                        <h3 class="h3 project-item__title">Audiophile</h3>
-                        <ul class="project-item__skills">
-                            <li><p class="paragraph paragraph--grey">HTML</p></li>
-                            <li><p class="paragraph paragraph--grey">CSS</p></li>
-                        </ul>
-                    </article>
-                </li>
+                {% endfor %}
             </ul>
         </section>
 
@@ -160,12 +107,12 @@
                     and I’ll get back to you as soon as possible.
                 </p>
             </article>
-            <form class="contact__form">
-                <input class="input paragraph" placeholder="NAME" p type="text"/>
-                <input class="input paragraph" placeholder="EMAIL" type="text"/>
-                <textarea class="input paragraph" placeholder="MESSAGE" type="textarea">
-                </textarea>
-                <button class="button contact__button">Send message</button>
+            <form id="contactForm" class="contact__form" method="POST">
+                {% csrf_token %}
+                {{ contact_form.name }}
+                {{ contact_form.email }}
+                {{ contact_form.message }}
+                <input class="button contact__button" value="Send message" type="submit"/>
             </form>
         </div>
         <nav class="navigation navigation--border-top">
