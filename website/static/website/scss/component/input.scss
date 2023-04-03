@@ -4,4 +4,12 @@
     background-color: transparent;
     padding: 2rem;
     border-bottom: 1px solid var(--white);
+
+    &--valid {
+        border-bottom: 1px solid var(--green);
+    }
+
+    &--invalid {
+        border-bottom: 1px solid var(--error);
+    }
 }
