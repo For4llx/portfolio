@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'website/css/dist/main.css' %}">
+    <script type="module" src="{% static "website/js/main.js" %}" defer></script>
     <title>Romeo Nobime</title>
 </head>
 <body class="body">
@@ -106,12 +107,12 @@
                     and I’ll get back to you as soon as possible.
                 </p>
             </article>
-            <form class="contact__form">
+            <form id="contactForm" class="contact__form" method="POST">
                 {% csrf_token %}
-                <input class="input paragraph" placeholder="NAME" type="text"/>
-                <input class="input paragraph" placeholder="EMAIL" type="text"/>
-                <textarea class="input paragraph" placeholder="MESSAGE" type="textarea"></textarea>
-                <button class="button contact__button">Send message</button>
+                {{ contact_form.name }}
+                {{ contact_form.email }}
+                {{ contact_form.message }}
+                <input class="button contact__button" value="Send message" type="submit"/>
             </form>
         </div>
         <nav class="navigation navigation--border-top">
