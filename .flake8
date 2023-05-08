@@ -1,5 +1,0 @@
-[flake8]
-exclude =
-    env,
-    __pycache__,
-    migrations,

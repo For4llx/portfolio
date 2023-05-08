@@ -1,6 +1,0 @@
-@use "../abstracts/index" as *;
-
-.h2 {
-    color: var(--white);
-    @include L;
-}

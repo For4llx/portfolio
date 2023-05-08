@@ -1,7 +1,0 @@
-@use "../abstracts/index" as *;
-
-.h3 {
-    color: var(--white);
-    text-transform: uppercase;
-    @include M;
-}
